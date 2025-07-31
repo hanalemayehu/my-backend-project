@@ -33,51 +33,48 @@ export default function Register() {
       <h2 style={{ textAlign: 'center', marginBottom: 20, color: '#333' }}>Create an Account</h2>
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email" style={{ fontWeight: 'bold', color: '#333' }}>
+        <label htmlFor="email" style={{ fontWeight: 'bold', color: '#111' }}>
           Email
         </label>
-       <input
-  id="email"
-  type="email"
-  placeholder="example@email.com"
-  value={email}
-  onChange={e => setEmail(e.target.value)}
-  required
-  style={{
-    width: '100%',
-    padding: 10,
-    marginBottom: 16,
-    marginTop: 4,
-    borderRadius: 6,
-    border: '1px solid #aaa',          // Slightly darker border
-    fontSize: 14,
-    color: '#111',                      // Darker text
-    backgroundColor: '#fff',           // Clear white background
-  }}
-/>
+        <input
+          id="email"
+          type="email"
+          placeholder="example@email.com"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required
+          style={{
+            width: '100%',
+            padding: 10,
+            marginBottom: 16,
+            marginTop: 4,
+            borderRadius: 6,
+            border: '1px solid #ccc',
+            fontSize: 14,
+          }}
+        />
 
         <label htmlFor="password" style={{ fontWeight: 'bold', color: '#333' }}>
           Password
         </label>
         <input
-  id="password"
-  type="password"
-  placeholder="Enter your password"
-  value={password}
-  onChange={e => setPassword(e.target.value)}
-  required
-  style={{
-    width: '100%',
-    padding: 10,
-    marginBottom: 20,
-    marginTop: 4,
-    borderRadius: 6,
-    border: '1px solid #aaa',
-    fontSize: 14,
-    color: '#111',
-    backgroundColor: '#fff',
-  }}
-/>
+          id="password"
+          type="password"
+          placeholder="Enter your password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          required
+          style={{
+            width: '100%',
+            padding: 10,
+            marginBottom: 20,
+            marginTop: 4,
+            borderRadius: 6,
+            border: '1px solid #ccc',
+            fontSize: 14,
+          }}
+        />
+
         <button
           type="submit"
           style={{

@@ -8,30 +8,31 @@ export default function AddUser() {
   const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setMessage('');
-    setError('');
+  e.preventDefault();
+  setMessage('');
+  setError('');
 
-    try {
-      const res: Response = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
+  try {
+    const res = await fetch('/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    });
 
-      const data = await res.json();
+    const text = await res.text(); // read raw body
+    const data = text ? JSON.parse(text) : {}; // parse if not empty
 
-      if (!res.ok) {
-        throw new Error(data.message || 'Something went wrong');
-      }
-
-      setMessage(data.message || 'User registered successfully!');
-      setEmail('');
-      setPassword('');
-    } catch (err: any) {
-      setError(err.message || 'Failed to register user');
+    if (!res.ok) {
+      throw new Error(data.message || 'Something went wrong');
     }
-  };
+
+    setMessage(data.message || 'User registered successfully!');
+    setEmail('');
+    setPassword('');
+  } catch (err: any) {
+    setError(err.message || 'Failed to register user');
+  }
+};
 
   return (
     <main
